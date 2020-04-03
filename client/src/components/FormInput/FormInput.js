@@ -1,13 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const FormInput = (props) => {
 
-  const {label, input, type, classes, meta: {touched, error}} = props;
+  const {label, input, type, classes, meta: {touched, error, active}} = props;
 
   const inputClassName = classNames(classes.input, {
     [classes.notValid]: touched && error,
-    [classes.valid]: touched && !error,
+    [classes.valid]: active && !error,
   });
 
   return (
@@ -19,5 +20,17 @@ const FormInput = (props) => {
     </div>
   );
 };
+FormInput.propTypes = {
+  label:PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  className: PropTypes.shape({
+    input: PropTypes.string.isRequired,
+    warning: PropTypes.string.isRequired,
+    notValid: PropTypes.string.isRequired,
+    valid: PropTypes.string.isRequired,
+    container: PropTypes.string.isRequired
+  })
 
+
+};
 export default FormInput;
