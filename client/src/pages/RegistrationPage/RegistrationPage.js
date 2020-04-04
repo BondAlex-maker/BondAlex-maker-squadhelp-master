@@ -27,9 +27,8 @@ const RegistrationPage = (props) => {
       </div>
       <div className={ styles.footer }>
         <div className={ styles.articlesMainContainer }>
-          <div className={ styles.ColumnContainer }>
            <Articles/>
-          </div>
+
         </div>
       </div>
     </div>
