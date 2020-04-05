@@ -12,7 +12,7 @@ import Error from "../../components/Error/Error";
 import _ from 'lodash'
 
 const RegistrationPage = (props) => {
-    const {initialValues, authClear, error, signUpUser} = props;
+    const {authClear, error, signUpUser} = props;
     const handleSubmit = (values) => {
         signUpUser(_.pick(values, [
             'firstName',

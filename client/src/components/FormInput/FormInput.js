@@ -1,35 +1,31 @@
 import React from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import styles from './FormInput.module.sass'
+
+const classNames = require('classnames');
 
 const FormInput = (props) => {
 
-  const {label, input, type, classes, meta: {touched, error, active}} = props;
+    const {label, input, type, meta: {touched, error}, wrapperClassName, errorClassName, inputDefaultClassName,inputNotValid, inputValid} = props;
+  const inputClassName = classNames( styles.input, {
+    [inputValid || styles.valid]: touched && !error,
+    [inputNotValid || styles.notValid]: touched && error,
+  }, inputDefaultClassName );
 
-  const inputClassName = classNames(classes.input, {
-    [classes.notValid]: touched && error,
-    [classes.valid]: active && !error,
-  });
-
-  return (
-    <div className={ classes.container }>
-      <input { ...input } placeholder={ label } type={ type }
-             className={ inputClassName }/>
-      { classes.warning && ( touched &&
-        ( error && <span className={ classes.warning }>{ error }</span> ) ) }
-    </div>
-  );
+    return (
+        <div className={wrapperClassName}>
+            <input {...input} placeholder={label} type={type}
+                   className={inputClassName}/>
+            {touched && error && <span className={errorClassName}>{error}</span>}
+        </div>
+    );
 };
 FormInput.propTypes = {
-  label:PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  className: PropTypes.shape({
-    input: PropTypes.string.isRequired,
-    warning: PropTypes.string.isRequired,
-    notValid: PropTypes.string.isRequired,
-    valid: PropTypes.string.isRequired,
-    container: PropTypes.string.isRequired
-  })
+    wrapperClassName: PropTypes.string,
+    errorClassName: PropTypes.string,
+    inputDefaultClassName: PropTypes.string,
+    inputNotValid: PropTypes.string,
+    inputValid: PropTypes.string,
 
 
 };
