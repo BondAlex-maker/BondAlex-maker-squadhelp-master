@@ -15,27 +15,30 @@ class RegistrationForm extends React.Component {
 
     render() {
         const {handleSubmit, submitting} = this.props;
-        const formInputClasses = {
-            container: styles.inputContainer,
-            input: styles.input,
-            warning: styles.fieldWarning,
-            notValid: styles.notValid,
-            valid: styles.valid,
-        };
+
         return (
 
             <form onSubmit={handleSubmit}>
                 <div className={styles.row}>
                     <Field
                         name='firstName'
-                        classes={formInputClasses}
+                        wrapperClassName={styles.inputContainer}
+                        errorClassName={styles.fieldWarning}
+                        inputDefaultClassName={styles.input}
+                        inputNotValid={styles.notValid}
+                        inputValid={styles.valid}
                         component={FormInput}
                         type='text'
                         label='First name'
                     />
                     <Field
                         name='lastName'
-                        classes={formInputClasses}
+
+                        wrapperClassName={styles.inputContainer}
+                        errorClassName={styles.fieldWarning}
+                        inputDefaultClassName={styles.input}
+                        inputNotValid={styles.notValid}
+                        inputValid={styles.valid}
                         component={FormInput}
                         type='text'
                         label='Last name'
@@ -44,14 +47,23 @@ class RegistrationForm extends React.Component {
                 <div className={styles.row}>
                     <Field
                         name='displayName'
-                        classes={formInputClasses}
+
+                        wrapperClassName={styles.inputContainer}
+                        errorClassName={styles.fieldWarning}
+                        inputDefaultClassName={styles.input}
+                        inputNotValid={styles.notValid}
+                        inputValid={styles.valid}
                         component={FormInput}
                         type='text'
                         label='Display Name'
                     />
                     <Field
                         name='email'
-                        classes={formInputClasses}
+                        wrapperClassName={styles.inputContainer}
+                        errorClassName={styles.fieldWarning}
+                        inputDefaultClassName={styles.input}
+                        inputNotValid={styles.notValid}
+                        inputValid={styles.valid}
                         component={FormInput}
                         type='text'
                         label='Email Address'
@@ -60,14 +72,22 @@ class RegistrationForm extends React.Component {
                 <div className={styles.row}>
                     <Field
                         name='password'
-                        classes={formInputClasses}
+                        wrapperClassName={styles.inputContainer}
+                        errorClassName={styles.fieldWarning}
+                        inputDefaultClassName={styles.input}
+                        inputNotValid={styles.notValid}
+                        inputValid={styles.valid}
                         component={FormInput}
                         type='password'
                         label='Password'
                     />
                     <Field
                         name='confirmPassword'
-                        classes={formInputClasses}
+                        wrapperClassName={styles.inputContainer}
+                        errorClassName={styles.fieldWarning}
+                        inputDefaultClassName={styles.input}
+                        inputNotValid={styles.notValid}
+                        inputValid={styles.valid}
                         component={FormInput}
                         type='password'
                         label='Password confirmation'
