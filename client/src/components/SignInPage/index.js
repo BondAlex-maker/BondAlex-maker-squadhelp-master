@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 import styles from './SignInPage.module.css';
-import SignInForm from '../../components/forms/SignInForm';
+import SignInForm from '../../components/LoginForm/LoginForm.js';
 
 const SignInPage = props => {
 	return (

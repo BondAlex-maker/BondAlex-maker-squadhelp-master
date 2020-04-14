@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../../components/Logo';
 import RegistrationForm
-    from '../../components/RegistrationForm/RegistrationForm';
+    from '../../components/RegistrationForm/RegistrationForm.js';
 import styles from './RegistrationPage.module.sass';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
