@@ -8,6 +8,7 @@ import styles from './Home.module.sass';
 import carouselConstants from '../../carouselConstants';
 import {connect} from 'react-redux';
 import Spinner from '../../components/Spinner/Spinner';
+import StartAContest from "../../components/StartAContest/StartAContest";
 
 
 const Home = (props) => {
@@ -186,6 +187,7 @@ const Home = (props) => {
                         <SlideBar images={carouselConstants.feedbackSliderImages}
                                   carouselType={carouselConstants.FEEDBACK_SLIDER}/>
                     </div>
+                    <StartAContest/>
                 </div>
                 <Footer/>
             </>)}
