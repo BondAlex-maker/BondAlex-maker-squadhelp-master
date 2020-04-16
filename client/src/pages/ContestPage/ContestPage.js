@@ -102,8 +102,8 @@ class ContestPage extends React.Component {
             conversationData: this.findConversationInfo(User.id)
         });
     };
-    checkOffers = () => {
-        return this.props.contestByIdStore.offers.length !== 0
+    hideOffers = () => {
+        return this.props.contestByIdStore.offers.length === 0
     };
 
     render() {
@@ -130,7 +130,7 @@ class ContestPage extends React.Component {
                                     <div className={styles.buttonsContainer}>
                         <span onClick={() => changeContestViewMode(true)}
                               className={classNames(styles.btn, {[styles.activeBtn]: isBrief})}>Brief</span>
-                                        {  role === CONSTANTS.CREATOR && this.checkOffers() &&
+                                        {  role === CONSTANTS.CREATOR && this.hideOffers() &&
                                         <span onClick={() => changeContestViewMode(false)}
                                               className={classNames(styles.btn, {[styles.activeBtn]: !isBrief})}>Offer</span>
                                         }
