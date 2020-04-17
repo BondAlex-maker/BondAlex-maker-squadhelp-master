@@ -87,7 +87,9 @@ class CreatorDashboard extends React.Component {
                 obj[el] = creatorFilter[el];
         });
         this.props.history.push('/Dashboard?' + queryString.stringify(obj));
+
     };
+
 
     parseUrlForParams = (search) => {
         const obj = queryString.parse(search);
@@ -117,6 +119,8 @@ class CreatorDashboard extends React.Component {
         });
         obj.ownEntries = creatorFilter.ownEntries;
         return obj;
+
+
     };
 
     loadMore = (startFrom) => {
@@ -147,18 +151,23 @@ class CreatorDashboard extends React.Component {
 
 
     render() {
+
         const {error, haveMore, creatorFilter} = this.props;
         const {isFetching} = this.props.dataForContest;
+        console.log(creatorFilter);
         return (
             <div className={styles.mainContainer}>
                 <div className={styles.filterContainer}>
                     <span className={styles.headerFilter}>Filter Results</span>
                     <div className={styles.inputsContainer}>
+                        <div> isSelected: {`${creatorFilter.typeIndex} , ${creatorFilter.contestId} , ${creatorFilter.industry} , ${creatorFilter.awardSort}`}
+                         </div>
                         <div
                             onClick={() => this.changePredicate({name: 'ownEntries', value: !creatorFilter.ownEntries})}
                             className={classNames(styles.myEntries, {[styles.activeMyEntries]: creatorFilter.ownEntries})}>My
                             Entries
                         </div>
+
                         <div className={styles.inputContainer}>
                             <span>By contest type</span>
                             {this.renderSelectType()}
