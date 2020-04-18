@@ -272,3 +272,12 @@ module.exports.getContests = (req, res, next) => {
       next(new ServerError());
     })
 };
+
+module.exports.getOffers = (req, res, next) => {
+  db.Offers.findAll({
+    raw:true,
+    where: { fileName: { [db.Sequelize.Op.ne] : null }   }
+  }).then(offers=>{
+    res.send(offers.map(offer => offer.fileName));
+  }).catch(err => console.log(err))
+}
