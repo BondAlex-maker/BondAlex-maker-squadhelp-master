@@ -150,18 +150,35 @@ class CreatorDashboard extends React.Component {
     };
 
 
+    onRemoveParameter = (parameter) => {
+        // const {creatorFilter} = this.props;
+        this.changePredicate({name:parameter,value: parameter === 'typeIndex' ? 0 : null});
+        // console.log(parameter);
+        // console.log(creatorFilter[parameter]);
+        //
+        // creatorFilter[parameter] = 0;
+        // this.setState();
+
+    }
+
     render() {
 
         const {error, haveMore, creatorFilter} = this.props;
         const {isFetching} = this.props.dataForContest;
+
+
         console.log(creatorFilter);
         return (
             <div className={styles.mainContainer}>
                 <div className={styles.filterContainer}>
                     <span className={styles.headerFilter}>Filter Results</span>
                     <div className={styles.inputsContainer}>
-                        <div> isSelected: {`${creatorFilter.typeIndex} , ${creatorFilter.contestId} , ${creatorFilter.industry} , ${creatorFilter.awardSort}`}
-                         </div>
+                        <div > isSelected:
+                            <span onClick={this.onRemoveParameter.bind(this, 'typeIndex')}>{`${types[creatorFilter.typeIndex]}`}</span>
+                            <span onClick={this.onRemoveParameter('contestId')}>{`${creatorFilter.contestId ? ', ' + creatorFilter.contestId : ''}`}</span>
+                            <span onClick={this.onRemoveParameter('industry')}>{`${creatorFilter.industry ? ', ' +creatorFilter.industry : ''}`}</span>
+                        <span onClick={this.onRemoveParameter('awardSort')}>{`${creatorFilter.awardSort ? ', ' + creatorFilter.awardSort : ''}`}</span>
+                        </div>
                         <div
                             onClick={() => this.changePredicate({name: 'ownEntries', value: !creatorFilter.ownEntries})}
                             className={classNames(styles.myEntries, {[styles.activeMyEntries]: creatorFilter.ownEntries})}>My
