@@ -175,9 +175,9 @@ class CreatorDashboard extends React.Component {
                     <div className={styles.inputsContainer}>
                         <div > isSelected:
                             <span onClick={this.onRemoveParameter.bind(this, 'typeIndex')}>{`${types[creatorFilter.typeIndex]}`}</span>
-                            <span onClick={this.onRemoveParameter('contestId')}>{`${creatorFilter.contestId ? ', ' + creatorFilter.contestId : ''}`}</span>
+                            {/*<span onClick={this.onRemoveParameter('contestId')}>{`${creatorFilter.contestId ? ', ' + creatorFilter.contestId : ''}`}</span>
                             <span onClick={this.onRemoveParameter('industry')}>{`${creatorFilter.industry ? ', ' +creatorFilter.industry : ''}`}</span>
-                        <span onClick={this.onRemoveParameter('awardSort')}>{`${creatorFilter.awardSort ? ', ' + creatorFilter.awardSort : ''}`}</span>
+                        <span onClick={this.onRemoveParameter('awardSort')}>{`${creatorFilter.awardSort ? ', ' + creatorFilter.awardSort : ''}`}</span>*/}
                         </div>
                         <div
                             onClick={() => this.changePredicate({name: 'ownEntries', value: !creatorFilter.ownEntries})}

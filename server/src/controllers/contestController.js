@@ -279,5 +279,7 @@ module.exports.getOffers = (req, res, next) => {
     where: { fileName: { [db.Sequelize.Op.ne] : null }   }
   }).then(offers=>{
     res.send(offers.map(offer => offer.fileName));
-  }).catch(err => console.log(err))
+  })    .catch(err => {
+    next(err);
+  })
 }
